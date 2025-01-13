@@ -1,7 +1,8 @@
-altair==5.5.0
-numpy==2.2.1
+altair==5.4.1
+markdown-it-py==3.0.0
+MarkupSafe==3.0.2
+numpy==1.26.4
 pandas==2.2.3
 pygwalker==0.4.9.13
-scipy==1.15.1
-sympy==1.13.3
-toolz==1.0.0
+scipy==1.14.1
+streamlit==1.41.1
