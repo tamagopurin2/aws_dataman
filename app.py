@@ -10,7 +10,6 @@ import pandas as pd
 import numpy as np
 from scipy.stats import linregress
 from scipy.stats import norm
-from sympy import sympify
 import streamlit as st
 import subprocess
 import altair as alt
