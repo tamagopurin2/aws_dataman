@@ -5,7 +5,6 @@ import tempfile
 import random
 import time
 from datetime import datetime
-import const
 import pandas as pd
 import numpy as np
 from scipy.stats import linregress
@@ -13,6 +12,7 @@ from scipy.stats import norm
 import streamlit as st
 import subprocess
 import altair as alt
+import pygwalker as pyg
 from data_processing.base_data_processor import AWSDataProcessor, ODTDataProcessor, AMDDataProcessor, DataVisualizer
 from data_processing.calculate_data import CalculateData, ApplyCondition
 from altair import limit_rows, to_values
@@ -1136,22 +1136,12 @@ def ondotori_page():
 # PygWalkerページの処理
 def Pyg_page():
     # ファイルの選択
-    file = st.file_uploader(
-        ":material/Search: csvファイルをアップロード",
-        type=["csv"]
-        )
+    file = st.file_uploader(":material/Search: CSVファイルをアップロード", type=["csv"])
+
     if file:
-        df = pd.read_csv(file, engine='python', encoding="shift-jis")
-        if st.button("PygWalkerを開く"):
-            # 現在時刻と乱数でtmpファイル名を作成
-            suffix = f"{int(time.time())}_{random.randint(0, 9999)}"
-            tmp_file_name = f"pyg_config_{suffix}.pyg"
-            # データを一時ファイルに保存
-            with tempfile.NamedTemporaryFile(delete=False, suffix=".csv") as tmp_file:
-                tmp_file.write(convert_csv(df))
-                tmp_fpath = tmp_file.name
-            # Pygの起動
-            subprocess.Popen(["streamlit", "run", "pygwalker_app.py", "--", tmp_fpath])
+        df = pd.read_csv(file, engine='python', encoding='shift-jis')
+        # PygWalkerを直接使う
+        pyg.walk(df)
     else:
         st.warning("解析するファイルを選択してください。")
 
