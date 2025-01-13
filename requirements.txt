@@ -1,0 +1,7 @@
+altair==5.5.0
+numpy==2.2.1
+pandas==2.2.3
+pygwalker==0.4.9.13
+scipy==1.15.1
+sympy==1.13.3
+toolz==1.0.0
