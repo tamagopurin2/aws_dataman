@@ -1,6 +1,9 @@
 import pandas as pd
 
 
+
+
+
 def add_count_row(df):
     """dfの最終行に合計値行を追加"""
     df_count = df.copy()

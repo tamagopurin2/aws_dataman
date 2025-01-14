@@ -445,25 +445,7 @@ def data_page():
     # Graphicタブ
     with tab_graphic:
         if file:
-            # session_stateにあるdataframeを読み込み
-            if "concat_df" in st.session_state:
-                concat_df = st.session_state["concat_df"]
-                # Pygwalkerの起動
-                st.write("💹PygWalkerでグラフ作成")
-                if st.button("PygWalkerを開く"):
-                    # 現在時刻と乱数でtmpファイル名を作成
-                    suffix = f"{int(time.time())}_{random.randint(0, 9999)}"
-                    tmp_file_name = f"pyg_config_{suffix}.pyg"
-                    # データを一時ファイルに保存
-                    with tempfile.NamedTemporaryFile(delete=False, suffix=".csv") as tmp_file:
-                        tmp_file.write(convert_csv(concat_df))
-                        tmp_fpath = tmp_file.name
-                    # Pygの起動
-                    subprocess.Popen(["streamlit", "run", "pygwalker_app.py", "--", tmp_fpath])
-            else:
-                st.warning("セッションデータが存在しません。データをロードしてください。")
-        else:
-            st.warning("解析するファイルを選択してください。")
+            pass
 
 
 # おんどとりページの処理
@@ -1136,14 +1118,8 @@ def ondotori_page():
 # PygWalkerページの処理
 def Pyg_page():
     # ファイルの選択
-    file = st.file_uploader(":material/Search: CSVファイルをアップロード", type=["csv"])
-
-    if file:
-        df = pd.read_csv(file, engine='python', encoding='shift-jis')
-        # PygWalkerを直接使う
-        pyg.walk(df)
-    else:
-        st.warning("解析するファイルを選択してください。")
+    pass
+# Pygwaker君はあとで直す．
 
 
 # pageの選択と処理
