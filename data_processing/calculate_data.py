@@ -73,7 +73,7 @@ class CalculateData:
         """FI or AFIを計算
         Args:
             FI: t < 0 となるtをひたすら積算
-            AFI: "初めて" t < 0 となった日からFIを計算（デフォはn=3, m=0）
+            AFI: "初めて" t < 0 となった日からFIを計算（デフォはn=0）
         """
         df = self.df
         result = pd.DataFrame(index=df.index)     # 結果を保存するdf
@@ -137,7 +137,7 @@ class CalculateData:
 # 条件式をdfに適用して抽出するクラス
 class ApplyCondition:
     def __init__(self, df, freq_key="D"):
-        """_summary_
+        """_summary_ 
 
         Args:
             df (_type_): _description_
@@ -162,6 +162,8 @@ class ApplyCondition:
             new_df[f"{col}_FT1"] = ((self.df_min[f"{col}"] < 0)) & (self.df_max[f"{col}"] >= 0).astype(int)   # x<0, 0<=x
             new_df[f"{col}_FT2"] = ((self.df_min[f"{col}"] < -2)) & (self.df_max[f"{col}"] > 2).astype(int)   # x<-2, 2<x
             new_df[f"{col}_FT3"] = ((self.df_min[f"{col}"] >= -8)) & (self.df_max[f"{col}"] < -3).astype(int)  # -8<= x <-3
+            # 杉山さんのリプ待ち
+            #new_df[f"{col}_FT4"] = ((self.df_min[F"{col}"] ))
 
         # Nanを0に置換
         new_df.fillna(0, inplace=True)
