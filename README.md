@@ -136,7 +136,9 @@
 - **CSV**：各結果を **Shift-JIS** で `Download as csv`
 - **ZIP**：複数結果を `create_zip({name: df, ...})` で一括DL
   - `*_long.csv`：Altair向けに縦持ちへ `melt` した形式
-
+- **PNG**：グラフ上部三点リーダーから **Save as PNG** でDL
+- **SVG**： 　　　　　　〃　　　　　　 **Save as SVG** でDL
+  - レイヤー構造が維持されているため、**Inkscape** や **Illustrator** で凡例や軸を編集できます
 ---
 
 ## 動作要件
@@ -161,8 +163,6 @@ pip install streamlit pandas numpy scipy altair pygwalker toolz
 # ローカルモジュール（data_processing）をパス解決できるように
 # プロジェクト直下をカレントディレクトリにして起動してください
 ```
-
-> CSV が Shift-JIS のため、**Windows 環境での検証**も行うと安心です。
 
 ---
 
@@ -198,8 +198,6 @@ repo_root/
   - ファイル名が `..._<地点>_<深度>.csv` 形式であるか確認してください。正規表現に一致しないと連番付与になります。
 - **Q. リサンプリング結果の結合でエラーが出る**
   - セッションに前回の結果が残っている可能性があります。`処理結果をリセット` ボタンでクリアしてから再実行してください。
-- **Q. AMD とは？**
-  - 実データ源に依存します。`AMDDataProcessor` 実装のコメントやドキュメントを確認してください（AMeDAS 等の略の可能性）。
 
 ---
 
