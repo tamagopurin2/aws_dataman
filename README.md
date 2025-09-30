@@ -70,6 +70,7 @@
 - **Data タブ**
   - 複数CSVを読み込み、必要に応じて初期処理（`ODTDataProcessor`）
   - ファイル名から **地点_深度** を抽出して列名に反映
+  - 複数地点 or 複数深度のファイルを読み込むことで、`hkb_5cm, hkb_10cm, shk_10cm` など地点・深度間の比較が可能
   - 任意の周期・集計でリサンプリングし、統計量・グラフ・CSV/long CSV をDL
 - **Temp curve タブ**
   - 期間指定 → 複数窓の **移動平均** と **ステップ平均** を計算
@@ -135,8 +136,8 @@
 - **CSV**：各結果を **Shift-JIS** で `Download as csv`
 - **ZIP**：複数結果を `create_zip({name: df, ...})` で一括DL
   - `*_long.csv`：Altair向けに縦持ちへ `melt` した形式
-- **PNG**：グラフ上部三点リーダーから **Save as PNG** でDL
-- **SVG**： 　　　　　　〃　　　　　　 **Save as SVG** でDL
+- **PNG**：グラフ上部三点リーダーから `Save as PNG` でDL
+- **SVG**： 　　　　　　〃　　　　　　 `Save as SVG` でDL
   - レイヤー構造が維持されているため、**Inkscape** や **Illustrator** で凡例や軸を編集できます
 ---
 
