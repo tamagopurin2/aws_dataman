@@ -39,7 +39,7 @@ st.set_page_config(
 st.title("AWSデータ抽出マン🚀（仮）")
 st.write("AWS，おんどとりのデータを整理したり計算したりするよ")
 st.markdown(
-    "<a href='https://github.com/tamagopurin2/aws_dataman/blob/main/README.md' target='_blank' style='display:inline-block; padding:8px 16px; background-color:#24292e; color:#fff; border-radius:5px; text-decoration:none;'>📘 GitHub README を開く</a>",
+    "<a href='https://github.com/tamagopurin2/aws_dataman/blob/main/README.md' target='_blank' style='display:inline-block; padding:8px 16px; background-color:#24292e; color:#fff; border-radius:5px; text-decoration:none;'>📘 GitHub README読んでね</a>",
     unsafe_allow_html=True
 )
 
